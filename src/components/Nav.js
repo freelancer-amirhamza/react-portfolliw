@@ -18,7 +18,7 @@ const Nav = () => {
             spy={true}
             offset={-200}
             to="home"
-            className="w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
+            className="w-[60px]  h-[60px] flex items-center justify-center cursor-pointer"
           >
             <BiHomeAlt />
           </Link>
@@ -26,7 +26,7 @@ const Nav = () => {
             activeClass='active'
             smooth={true}
             spy={true}
-           
+          
             to="about"
             className="w-[60px] h-[60px] flex items-center justify-center cursor-pointer"
           >
@@ -66,3 +66,4 @@ const Nav = () => {
 };
 
 export default Nav;
+// 01401436287

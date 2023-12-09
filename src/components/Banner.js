@@ -2,7 +2,7 @@ import React from "react";
 // images
 import Image from "../assets/avatar.svg";
 // react icons
-import { FaGithub, FaYoutube, FaDribbble, FaLinkedin, FaLinkedinIn, FaDribbbleSquare } from "react-icons/fa";
+import { FaGithub, FaDribbble,  FaLinkedinIn, } from "react-icons/fa";
 // motion
 import { motion } from "framer-motion";
 // Type Animation
@@ -13,7 +13,7 @@ const Banner = () => {
   return (
     <section className="min-h-[85vh] lg:min-h-[78vh] flex items-center " id="home">
       <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row gap-y-8 lg:items-center " >
+        <div className="flex flex-col-reverse lg:flex-row gap-y-8 lg:items-center " >
           <div className="flex-1 text-center font-secondary lg:text-left ">
           {/* text */}
           <motion.h1
@@ -21,7 +21,7 @@ const Banner = () => {
           initial='hidden'
           whileInView={'show'}
           viewport={{once:false, amount:0.7 }}
-          className="text-[55px] font-bold leading-[0.8] lg:text-[110px]  ">
+          className="text-[55px] font-bold leading-[0.8] lg:text-[110px] lg:leading-none  ">
             AMIR <span>HAMZA</span>
           </motion.h1>
           <motion.div 
@@ -53,9 +53,8 @@ const Banner = () => {
           initial='hidden'
           whileInView={'show'}
           viewport={{once:false, amount:0.7 }}
-          className="mb-8 max-w-lg mx-auto lg:mx-0 " >Lorem ipsum dolor sit amet consectetur 
-            adipisicing elit. Incidunt error molestiae qui culpa blanditiis, inventore aperiam enim suscipit omnis repellendus nulla, delectus ipsum labore id alias eos
-             earum sapiente rem.
+          className="mb-8 max-w-lg mx-auto lg:mx-0 " >My name is Amir Hamza. I am a Junior Front-End Developer. I have a lot experience of HTML,CSS, Bootstrap 5, 
+          JQuery, JavaScript, React, Next JS, Redux, Firebase
             </motion.p>
             <motion.div
             variants={fadeIn('up', 0.6)}
@@ -64,7 +63,7 @@ const Banner = () => {
           viewport={{once:false, amount:0.7 }}
             className="flex items-center gap-x-6 max-w-max mx-auto 
             lg:mx-0 mb-12 ">
-              <button className="btn btn-lg">Contact Me</button>
+              <button className="btn btn-lg" to="contact"><a href="#">Contact Me</a></button>
               <a href="#" className="text-gradient btn-link"> My Portfolio</a>
             </motion.div>
             {/* social icons */}
@@ -74,13 +73,19 @@ const Banner = () => {
           whileInView={'show'}
           viewport={{once:false, amount:0.7 }}
             className="flex text-[20px] gap-x-6 max-w-max mx-auto la:mx-0">
-            <a href="#">
+            <a 
+              className="btn p-2"
+              href="#">
               <FaGithub/>
             </a>
-            <a href="#">
-              <FaLinkedin/>
+            <a 
+              className="btn p-2"
+              href="#">
+              <FaLinkedinIn/>
             </a>
-            <a href="#">
+            <a 
+              className="btn p-2"
+              href="#">
               <FaDribbble/>
             </a>
           </motion.div>
@@ -91,10 +96,11 @@ const Banner = () => {
           initial='hidden'
           whileInView={'show'}
           viewport={{once:false, amount:0.7 }}
-        className="hidden lg:flex flex-1 max-w-[320px] lg:max-w-[480px]
+        className="lg:flex flex-1
+          items-center w-full h-full max-w-[480px] mx-auto
          " >
           {/* image */}
-          <img src={Image} alt="" />
+          <img className="w-full h-full" src={Image} alt="" />
         </motion.div>
         </div>
       </div>

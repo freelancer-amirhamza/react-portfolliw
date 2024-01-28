@@ -1,8 +1,21 @@
 import React from 'react';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import {motion} from 'framer-motion';
 import { fadeIn } from '../variants';
 
 const Contact = () => {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm('service_uu46xej', 'template_i7unnhr', form.current, 'aRfaOYmx8PfQjgxEW')
+      .then((result) => {
+          alert(result.text);
+      }, (error) => {
+          alert(error.text);
+      });
+      e.target.reset()
+  }
   return (
     <section  className='py-16 lg:section' id='contact'>
       <div className='container mx-auto'>
@@ -25,7 +38,9 @@ const Contact = () => {
           </motion.div>
 
           {/* form */}
-          <motion.form
+          <motion.form 
+          ref={form}
+          onSubmit={sendEmail}
           variants={fadeIn('left', 0.3)}
           initial='hidden'
           whileInView={'show'}
@@ -36,17 +51,21 @@ const Contact = () => {
             className='border-b outline-none w-full bg-transparent py-3
              transition-all placeholder:text-white focus:border-accent  '
             placeholder='Your Name'
-            type="text" />
+            type="text"
+            name='name'
+             />
             <input 
             className='border-b outline-none w-full bg-transparent py-3
              transition-all placeholder:text-white focus:border-accent  '
             placeholder='Your Email'
+            name='email'
             type="email" />
 
             <textarea className='border-b outline-none w-full bg-transparent
               py-12 transition-all placeholder:text-white focus:border-accent 
               resize-none mb-12  '
-             placeholder='Your Massage'
+              placeholder='Your Massage'
+              name='message'
              ></textarea>
              <button type='submit' className=' btn btn-lg '>Send Your Massage </button>
 
